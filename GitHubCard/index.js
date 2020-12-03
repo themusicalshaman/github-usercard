@@ -3,12 +3,16 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-import axios from 'axios';
+import axios from "axios";
+
+
 
 axios
   .get("https://api.github.com/users/themusicalshaman")
   .then((futureData) => {
-    const git = futureData.data;
+    const git = futureData.data
+    const card = cardMaker(futureData.data)
+    entryPoint.appendChild(card)
   })
   .catch((err) => {
     console.log(err, "this is not working");
@@ -65,17 +69,17 @@ const followersArray = [
     </div>
 */
 function cardMaker(obj) {
-  const card = document.createElement('div');
-  const image = document.createElement('img');
-  const cardInfo = document.createElement('div');
-  const title = document.createElement('h3');
-  const username = document.createElement('p');
-  const userLocation = document.createElement('p');
-  const profile = document.createElement('p');
-  const address = document.createElement('a');//'a'??
-  const userFollowers = document.createElement('p');
-  const userFollowing = document.createElement('p');
-  const userBio = document.createElement('p');
+  const card = document.createElement("div");
+  const image = document.createElement("img");
+  const cardInfo = document.createElement("div");
+  const title = document.createElement("h3");
+  const username = document.createElement("p");
+  const userLocation = document.createElement("p");
+  const profile = document.createElement("p");
+  const address = document.createElement("a");
+  const userFollowers = document.createElement("p");
+  const userFollowing = document.createElement("p");
+  const userBio = document.createElement("p");
 
   image.src = `${obj.imageURL}`; 0
   title.textContent = `${name.imageURL}`;
