@@ -101,6 +101,14 @@ function cardMaker(obj){
   cardInfo.appendChild(userFollowing);
   cardInfo.appendChild(userBio);
 
+  userIMG.src = data.avatar_url;
+  name.textContent = data.name;
+  username.textContent = data.login;
+  location.textContent = `Location: ${data.location}`;
+  profile.textContent = `Profile: ${data.html_url}`;
+  followers.textContent = `Followers: ${data.followers}`;
+  following.textContent = `Following: ${data.following}`;
+  bio.textContent = `Bio: ${data.bio}`;
   // console.log(obj);  I can not get anything here to console.log out and show up on my browser inspect tools!
   return card;
 }
