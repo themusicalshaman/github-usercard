@@ -3,7 +3,16 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+import axios from 'axios';
 
+axios
+  .get("https://api.github.com/users/themusicalshaman")
+  .then((futureData) => {
+    const git = futureData.data;
+  })
+  .catch((err) => {
+    console.log(err, "this is not working");
+  })
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -16,7 +25,7 @@
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards
 */
-
+const entryPoint = document.querySelector("cards");
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
     follow this link in your browser https://api.github.com/users/<Your github name>/followers,
@@ -28,7 +37,13 @@
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+    "tetondan",
+    "dustinmyers",
+    "justsml",
+    "luishrd",
+    "bigknell",
+];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -49,6 +64,47 @@ const followersArray = [];
       </div>
     </div>
 */
+function cardMaker(obj){
+  const card = document.createElement('div');
+  const image = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const title = document.createElement('h3');
+  const username = document.createElement('p');
+  const userLocation = document.createElement('p');
+  const profile = document.createElement('p');
+  const address = document.createElement('a');//'a'??
+  const userFollowers = document.createElement('p');
+  const userFollowing = document.createElement('p');
+  const userBio = document.createElement('p');
+
+  image.src = `${obj.imageURL}`;
+  title.textContent = `${name.imageURL}`;
+  username.textContent = `${obj.username}`;
+  userLocation.textContent = `${obj.userLocation}`;
+  address.textContent = `Profile: ${obj.html_url}`
+  userFollowers.textContent = `${obj.userFollowers}`;
+  userFollowing.textContent = `${obj.userFollowing}`;
+  userBio.textContent = `${obj.bio}`;
+
+  card.classList.add('class');
+  cardInfo.classList.add('card-info');
+  title.classList.add('name');
+  username.classList.add('username');
+
+  card.appendChild(image);
+  cardInfo.appendChild(title);
+  cardInfo.appendChild(username);
+  cardInfo.appendChild(userLocation);
+  cardInfo.appendChild(profile);
+  profile.appendChild(address);
+  cardInfo.appendChild(userFollowers);
+  cardInfo.appendChild(userFollowing);
+  cardInfo.appendChild(userBio);
+
+  // console.log(obj);  I can not get anything here to console.log out and show up on my browser inspect tools!
+  return card;
+}
+
 
 /*
   List of LS Instructors Github username's:
