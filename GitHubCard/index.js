@@ -64,7 +64,7 @@ const followersArray = [
       </div>
     </div>
 */
-function cardMaker(obj){
+function cardMaker(obj) {
   const card = document.createElement('div');
   const image = document.createElement('img');
   const cardInfo = document.createElement('div');
@@ -77,7 +77,7 @@ function cardMaker(obj){
   const userFollowing = document.createElement('p');
   const userBio = document.createElement('p');
 
-  image.src = `${obj.imageURL}`;
+  image.src = `${obj.imageURL}`; 0
   title.textContent = `${name.imageURL}`;
   username.textContent = `${obj.username}`;
   userLocation.textContent = `${obj.userLocation}`;
@@ -101,14 +101,7 @@ function cardMaker(obj){
   cardInfo.appendChild(userFollowing);
   cardInfo.appendChild(userBio);
 
-  userIMG.src = data.avatar_url;
-  name.textContent = data.name;
-  username.textContent = data.login;
-  location.textContent = `Location: ${data.location}`;
-  profile.textContent = `Profile: ${data.html_url}`;
-  followers.textContent = `Followers: ${data.followers}`;
-  following.textContent = `Following: ${data.following}`;
-  bio.textContent = `Bio: ${data.bio}`;
+  
   // console.log(obj);  I can not get anything here to console.log out and show up on my browser inspect tools!
   return card;
 }
